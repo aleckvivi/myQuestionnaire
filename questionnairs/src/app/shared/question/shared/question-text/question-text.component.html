@@ -1,0 +1,23 @@
+<!-- 通过ngIf将问题的回答，编辑，代编辑这三种状态都描绘在这个控件中 -->
+<p>问答题</p>
+<div *ngIf="!editable">
+    <p>{{question.title}}</p>
+    <input placeholder="请输入问题的答案" class="form-control" [(ngModel)]="question.answer" />
+</div>
+
+<div *ngIf="editable && isEditing">
+    <input placeholder="请输入问题" class="form-control" [(ngModel)]="question.title" required />
+    <div class="btns">
+        <button (click)="onSave()" class="btn">保存</button>
+        <button (click)="onCancel()" class="btn">取消</button>
+    </div>
+</div>
+
+<div *ngIf="editable && !isEditing">
+    <p>{{question.title}}</p>
+    <input placeholder="请输入问题的答案" class="form-control" disabled="disabled" />
+    <div class="btns">
+        <button (click)="onEdit()" class="btn btn-default">编辑</button>
+        <button (click)="onDelete()" class= "btn btn-default">删除</button>
+      </div>
+</div>

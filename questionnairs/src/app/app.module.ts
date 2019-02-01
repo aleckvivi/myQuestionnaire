@@ -18,4 +18,6 @@ import { AlertModule } from 'ngx-bootstrap/alert';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  title="debug";
+ }
